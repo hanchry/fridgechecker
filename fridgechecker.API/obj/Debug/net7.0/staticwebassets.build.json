@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "tTg3iaZ0+2R41e1N+W1FtFoif8e09AZUbGMG/PXoMwE=",
+  "Source": "fridgechecker.API",
+  "BasePath": "_content/fridgechecker.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
