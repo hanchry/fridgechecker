@@ -1,6 +1,6 @@
 ﻿namespace fridgechecker.Legacy.Models;
 
-public class User
+public class UserDB
 {
     public int Id { get; set; }
     public string? Name { get; set; }
