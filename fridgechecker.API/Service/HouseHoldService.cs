@@ -9,6 +9,7 @@ namespace fridgechecker.Service;
 public interface IHouseHoldService
 {
     Task<HouseHoldDB> GetHouseHold(int id);
+    Task<IList<HouseHoldDB>> GetHouseHolds(int userId);
 }
 
 public class HouseHoldService: IHouseHoldService
@@ -25,5 +26,10 @@ public class HouseHoldService: IHouseHoldService
     {
         var houseHold = await _legacy.HouseHolds.FirstOrDefaultAsync(h => h.Id == id);
         return _mapper.Map<HouseHoldDB>(houseHold);
+    }
+
+    public Task<IList<HouseHoldDB>> GetHouseHolds(int userId)
+    {
+        throw new NotImplementedException();
     }
 }

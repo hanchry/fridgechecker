@@ -14,4 +14,10 @@ public class HouseHold
     [Required] [StringLength(25)] [Column("name")] public string Name { get; set; }
     [StringLength(25)] [Column("city")] public string City { get; set; }
     [StringLength(25)] [Column("address")] public string Address { get; set; }
+    
+    [InverseProperty(nameof(UserHouseHold.HouseHoldOwnd))]
+    public virtual IList<UserHouseHold> UserHouseHolds { get; set; }
+    
+    [InverseProperty(nameof(Storage.houseHold))]
+    public virtual ICollection<Storage> Storages { get; set; }
 }

@@ -18,6 +18,7 @@ public class HouseHoldController : Controller
     [HttpGet("HouseHolds", Name = nameof(HouseHolds))]
     public async Task<IActionResult> HouseHolds(int userId)
     {
+        var houseHolds = await _houseHoldService.GetHouseHolds(userId);
         return Ok("nice");
     }
     [HttpGet("HouseHold", Name = nameof(HouseHold))]
