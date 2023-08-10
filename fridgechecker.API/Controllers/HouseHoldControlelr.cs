@@ -40,5 +40,11 @@ public class HouseHoldController : Controller
         await _houseHoldService.AddUserToHouseHold(userId, houseHoldId);
         return Ok();
     }
+    [HttpDelete("HouseHold", Name = nameof(HouseHold))]
+    public async Task<IActionResult> DeleteHouseHold(int id)
+    {
+        await _houseHoldService.RemoveHouseHold(id);
+        return Ok();
+    }
 
 }

@@ -1,6 +1,6 @@
 ﻿namespace fridgechecker.Legacy.Models;
 
-public class Dish
+public class DishDB
 {
     public int Id { get; set; }
     public string Name { get; set; } = null!;
