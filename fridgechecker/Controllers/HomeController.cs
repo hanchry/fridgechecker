@@ -1,10 +1,14 @@
 ﻿using System.Diagnostics;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using fridgechecker.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace fridgechecker.Controllers;
 
-public class HomeController : Controller
+
+public class HomeController : BaseController
 {
     private readonly ILogger<HomeController> _logger;
 
@@ -15,17 +19,28 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        if (User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("Index", "HouseHold");
+        }
         return View();
     }
 
-    public IActionResult Privacy()
+    public async Task<IActionResult> GetStarted()
     {
-        return View();
-    }
+        Console.WriteLine(1);
+        var token = "123";
+        var claims = new List<Claim>()
+        {
+            new Claim(ClaimTypes.Role, "User"),
+        };
+        var identity = new ClaimsIdentity(claims, "User claims");
+        var principal = new ClaimsPrincipal(new[] {identity});
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+        //stores all userclaims to the users cookiesession
+        await HttpContext.SignInAsync(principal);
+        HttpContext.Session.SetString("token", token);
+        
+        return RedirectToAction("Index", "HouseHold");
     }
 }

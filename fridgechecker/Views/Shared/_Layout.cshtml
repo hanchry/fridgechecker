@@ -7,9 +7,51 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
     <link rel="stylesheet" href="~/fridgechecker.styles.css" asp-append-version="true"/>
-    
+
 </head>
 <body>
+
+@if (User.Claims.Any())
+{
+    <header>
+        <nav >
+            <ul >
+                <li>
+                    <a asp-controller="HouseHold" asp-action="Index" id="FoodsNav" title="Foods" class="navigation-button">
+                        <svg id="svgNav1" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-fridge" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M5 3m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z"/>
+                            <path d="M5 10h14"/>
+                            <path d="M9 13v3"/>
+                            <path d="M9 6v1"/>
+                        </svg>
+                        <div id="Nav1"></div>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Dishes" asp-action="Index" id="DishesNav" title="Dishes" class="navigation-button">
+                        <svg id="svgNav2" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chef-hat" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M12 3c1.918 0 3.52 1.35 3.91 3.151a4 4 0 0 1 2.09 7.723l0 7.126h-12v-7.126a4 4 0 1 1 2.092 -7.723a4 4 0 0 1 3.908 -3.151z"/>
+                            <path d="M6.161 17.009l11.839 -.009"/>
+                        </svg>
+                        <div id="Nav2"></div>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="Profile" asp-action="Index" id="ProfileNav" title="Profile" class="navigation-button">
+                        <svg id="svgNav3" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="44" height="44" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"/>
+                            <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/>
+                        </svg>
+                        <div  id="Nav3"></div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+}
 @* <header> *@
 @*     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"> *@
 @*         <div class="container-fluid"> *@

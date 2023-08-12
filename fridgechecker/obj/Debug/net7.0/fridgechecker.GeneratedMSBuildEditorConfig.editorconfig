@@ -16,8 +16,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\hanch\Desktop\fridge\fridgechecker\fridgechecker
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/Dishes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGlzaGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/Food/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/HouseHold/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkXEFkZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/HouseHold/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG91c2VIb2xkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/Shared/Error.cshtml]
@@ -26,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/Storage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcmFnZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/hanch/Desktop/fridge/fridgechecker/fridgechecker/Views/_ViewImports.cshtml]

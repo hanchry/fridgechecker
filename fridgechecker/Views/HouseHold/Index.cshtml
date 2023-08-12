@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "HouseHolds";
+}
+<style>
+    #svgNav1 {
+        stroke: #ffcc00;
+    }
+    #Nav1 {
+        background-color: #ffcc00;
+    }
+</style>
+
+<div class="page-header">
+    <a asp-action="Logout">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-logout-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+          <path d="M10 8v-2a2 2 0 0 1 2 -2h7a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-7a2 2 0 0 1 -2 -2v-2" />
+          <path d="M15 12h-12l3 -3" />
+          <path d="M6 15l-3 -3" />
+        </svg>
+    </a>
+    <h1>House Holds</h1>
+    <a asp-action="Add">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 5l0 14"/>
+            <path d="M5 12l14 0"/>
+        </svg>
+    </a>
+</div>
+
+<ul class="content-list">
+    <li>
+        <a asp-action="HouseHold" class="list-item">
+            <div class="list-image">🏡</div>
+            <div class="list-name">
+                <h1>A&S</h1>
+                <p>fabrikvej 1</p>
+            </div>
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M18 6l-12 12"/>
+                    <path d="M6 6l12 12"/>
+                </svg>
+            </button>
+        </a>
+    </li>
+</ul>

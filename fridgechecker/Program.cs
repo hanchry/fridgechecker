@@ -2,6 +2,21 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication("CookieAuth")
+    .AddCookie("CookieAuth", config =>
+    {
+        //if a user tries to access a page, while not authorized, they'll be redirected to the login page
+        config.AccessDeniedPath = "/Login";
+        config.LoginPath = "/Login";
+        
+        // config.ExpireTimeSpan = TimeSpan.FromHours(18);
+        // config.Cookie.MaxAge = config.ExpireTimeSpan; // optional
+        // config.SlidingExpiration = true;
+    });
+builder.Services.AddSession(options =>
+{
+    options.Cookie.IsEssential = true; // This is required for the session to work
+});
 
 var app = builder.Build();
 
@@ -16,12 +31,16 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession();
+
 app.UseRouting();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}");
 
 app.Run();
