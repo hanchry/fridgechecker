@@ -18,10 +18,6 @@ public class HouseHoldController:BaseController
     {
         return RedirectToAction("Index","Home");
     }
-    public IActionResult Back()
-    {
-        return RedirectToAction("Index");
-    }
     public IActionResult Add()
     {
         return View();

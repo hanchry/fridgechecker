@@ -16,4 +16,8 @@ public class StorageController:BaseController
     {
         return RedirectToAction("Index", "Food");
     }
+    public IActionResult Add()
+    {
+        return View();
+    }
 }

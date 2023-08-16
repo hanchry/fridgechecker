@@ -12,4 +12,8 @@ public class FoodController:BaseController
     {
         return RedirectToAction("Index", "Storage");
     }
+    public IActionResult Add()
+    {
+        return View();
+    }
 }

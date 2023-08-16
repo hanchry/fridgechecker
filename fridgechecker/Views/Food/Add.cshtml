@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "HouseHolds";
 }
+
 <style>
     #svgNav1 {
         stroke: #ffcc00;
@@ -19,33 +20,38 @@
             <path d="M5 12l4 -4"/>
         </svg>
     </a>
-    <h1>Add House Hold</h1>
+    <h1>Add Food</h1>
     <a style="width: 44px">
 
     </a>
-    @* <a> *@
-    @*     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-plus" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round"> *@
-    @*         <path stroke="none" d="M0 0h24v24H0z" fill="none"/> *@
-    @*         <path d="M12 5l0 14"/> *@
-    @*         <path d="M5 12l14 0"/> *@
-    @*     </svg> *@
-    @* </a> *@
 </div>
 
 <form class="adding-form">
     <div class="form-image">
-        🏡
+        🥩
     </div>
     <div class="form-input-div">
         <p>Name:</p>
         <input/>
     </div >
     <div class="form-input-div">
-        <p>City:</p>
+        <p>Description:</p>
         <input/>
     </div>
     <div class="form-input-div">
-        <p>Address:</p>
+        <p>Expiration date:</p>
+        <input/>
+    </div >
+    <div class="form-input-div">
+        <p>Amount:</p>
+        <input/>
+    </div>
+    <div class="form-input-div">
+        <p>Amount type:</p>
+        <input/>
+    </div >
+    <div class="form-input-div">
+        <p>Food type:</p>
         <input/>
     </div>
     <button>Add</button>
