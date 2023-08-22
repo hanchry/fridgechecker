@@ -124,84 +124,80 @@ nav > ul {
     transition: fill 0.5s ease-in-out;
 }
 
-.content-list {
+.content-list{
     position: absolute;
-    list-style: none;
-    top: 45px;
     left: 0;
+    top: 45px;
+    padding: 15px;
+    margin: 0;
     width: 100%;
     height: calc(100% - 13%);
-    overflow-y: scroll;
-    overflow-x: hidden;
-    padding: 25px;
-    padding-inline: 15px;
-    margin: 0px;
-    /*background-color: #000000;*/
+    list-style: none;
+}
+.content-list > li{
+    margin-bottom: 30px;
+}
+.list-form{
+    position: relative;
+    width: 100%;
 }
 .list-item{
-    background-color: #228c57;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    background: #228c57;
     display: flex;
-    text-decoration: none;
-    position: relative;
-    cursor: pointer;
+    border-radius: 10px;
 }
-.list-image{
-    background-color: #ffffff;
+.list-image {
     width: 100px;
     height: 100px;
+    background: #ffffff;
     border-radius: 10px;
     transform: rotate(-20deg);
-    font-size: 70px;
+/*    text size*/
+    font-size: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .list-name{
-    color: white;
-    font-size: 30px;
-    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 55%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 60%;
-}
-.list-name>h1,p{
+    padding: 0;
     margin: 0;
 }
-.list-name>p{
-    font-size: 15px;
-    color: #d7d6d6;
+.list-name> p{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e3e3e3;
 }
-.list-item > button{
+.list-name >h1{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.list-delete-button{
     position: absolute;
-    border-radius: 50%;
-    right: -10px;
     top: -10px;
-    border: none;
-    padding: 5px;
+    right: -10px;
+    width: 40px;
+    height: 40px;
+    background: #ffcb05;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
-.list-item>p{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    color: #d7d6d6;
-    font-size: 15px;
-    padding: 5px;
-}
-.list-item > button > svg{
-    height: 20px;
-    width: 20px;
-    stroke: #ff0000;
-    margin: 5px;
-    transition: stroke 0.5s ease-in-out;
-}
-
 
 
 .content-list-food {

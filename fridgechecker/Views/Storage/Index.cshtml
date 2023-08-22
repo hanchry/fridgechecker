@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IList<Storage>
+
+@{
     ViewData["Title"] = "HouseHolds";
 }
 
@@ -31,20 +33,28 @@
 </div>
 
 <ul class="content-list">
-    <li>
-        <a asp-action="Storage" class="list-item">
-            <div class="list-image">⛄</div>
-            <div class="list-name">
-                <h1>Fridge</h1>
-            </div>
-            <button>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M18 6l-12 12"/>
-                    <path d="M6 6l12 12"/>
-                </svg>
-            </button>
-        </a>
-    </li>
+    @foreach (var storage in Model)
+        {
+            <li>
+                <form class="list-form">
+                    <button asp-action="Storage" class="list-item" type="submit">
+                        <input type="hidden" name="storageId" value="@storage.Id"/>
+                        <div class="list-image">⛄</div>
+                        <div class="list-name">
+                            <h1>@storage.Name</h1>
+                        </div>
+                        <div></div>
+                    </button>
+                    <button asp-action="Add" class="list-delete-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M18 6l-12 12"/>
+                            <path d="M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </form>
+    
+            </li>
+        }
 </ul>
 

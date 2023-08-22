@@ -41,7 +41,8 @@ public class HouseHoldService: IHouseHoldService
     public async Task<HouseHoldDB> CreateHouseHold(HouseHoldDB houseHold)
     {
         var userHouseHold = await _legacy.HouseHolds.AddAsync(_mapper.Map<HouseHold>(houseHold));
-        _legacy.SaveChanges();
+        await _legacy.SaveChangesAsync();
+        await AddUserToHouseHold(houseHold.UserId, userHouseHold.Entity.Id);
         return _mapper.Map<HouseHoldDB>(userHouseHold.Entity);
     }
 

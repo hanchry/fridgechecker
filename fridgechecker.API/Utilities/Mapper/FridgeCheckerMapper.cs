@@ -10,6 +10,18 @@ public class FridgeCheckerMapper:Profile
     {
         //----- HouseHold -----//
         CreateMap<HouseHoldDB, HouseHold>().ReverseMap();
+        
+        //----- Storage -----//
+        CreateMap<StorageDB, Storage>().ReverseMap();
+        
+        //----- User -----//
+        CreateMap<UserDB, User>().ReverseMap();
+        
+        //----- Food -----//
+        CreateMap<FoodDB, Food>().ReverseMap();
+        
+        //----- Dish -----//
+        CreateMap<DishDB, Dish>().ReverseMap();
     }
     
 }

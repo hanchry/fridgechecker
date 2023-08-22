@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Security.Claims;
+using fridgechecker.Models;
+using fridgechecker.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace fridgechecker.Controllers;
@@ -6,13 +10,24 @@ namespace fridgechecker.Controllers;
 [Authorize]
 public class HouseHoldController:BaseController
 {
-    public IActionResult Index()
+    private readonly IHouseHoldService _houseHoldService;
+    public HouseHoldController(IHouseHoldService houseHoldService)
     {
-        return View();
+        _houseHoldService = houseHoldService;
     }
-    public IActionResult HouseHold()
+    public async Task<IActionResult> Index()
     {
-        return RedirectToAction("Index","Storage");
+        var userId = "1";
+        HttpContext.Session.SetString("userId", userId);
+        
+        // Console.WriteLine("token "+GetUserToken());
+        
+        var houseHolds = await _houseHoldService.GetHouseHolds(Int32.Parse(GetUserId()));
+        return View(houseHolds);
+    }
+    public IActionResult HouseHold(int houseHoldId)
+    {
+        return RedirectToAction("Index","Storage",new {id = houseHoldId});
     }
     public IActionResult Logout()
     {

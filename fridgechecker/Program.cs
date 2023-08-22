@@ -1,7 +1,16 @@
+using fridgechecker.Services;
+using fridgechecker.Utilities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IApiClientProxy, ApiClientProxy>();
+builder.Services.AddScoped<IHouseHoldService, HouseHoldService>();
+builder.Services.AddScoped<IStorageService, StorageService>();
+builder.Services.AddScoped<IFoodService, FoodService>();
+
 builder.Services.AddAuthentication("CookieAuth")
     .AddCookie("CookieAuth", config =>
     {

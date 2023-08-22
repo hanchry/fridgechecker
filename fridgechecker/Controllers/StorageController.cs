@@ -1,20 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using fridgechecker.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace fridgechecker.Controllers;
 
 public class StorageController:BaseController
 {
-    public IActionResult Index()
+    private readonly IStorageService _storageService;
+    
+    public StorageController(IStorageService storageService)
     {
-        return View();
+        _storageService = storageService;
+    }
+    public async Task<IActionResult> Index(int id)
+    {
+        if (id != 0)
+        {
+            HouseId = id.ToString();
+        }
+        var storages =  await _storageService.GetStorages(Int32.Parse(HouseId));
+        return View(storages);
     }
     public IActionResult Back()
     {
         return RedirectToAction("Index", "Household");
     }
-    public IActionResult Storage()
+    public IActionResult Storage(int storageId)
     {
-        return RedirectToAction("Index", "Food");
+        return RedirectToAction("Index", "Food", new {id = storageId});
     }
     public IActionResult Add()
     {

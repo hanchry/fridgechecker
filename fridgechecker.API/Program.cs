@@ -14,6 +14,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IHouseHoldService, HouseHoldService>();
+builder.Services.AddScoped<IStorageService, StorageService>();
+builder.Services.AddScoped<IFoodService, FoodService>();
+builder.Services.AddScoped<IDishService, DishService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddDbContext<FridgeLegacyContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("ProductionConnection"))

@@ -28,8 +28,7 @@ public class HomeController : BaseController
 
     public async Task<IActionResult> GetStarted()
     {
-        Console.WriteLine(1);
-        var token = "123";
+        var token = "1";
         var claims = new List<Claim>()
         {
             new Claim(ClaimTypes.Role, "User"),

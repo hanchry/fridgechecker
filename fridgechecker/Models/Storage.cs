@@ -1,6 +1,6 @@
-﻿namespace fridgechecker.Legacy.Models;
+﻿namespace fridgechecker.Models;
 
-public class StorageDB
+public class Storage
 {
     public int Id { get; set; }
     public int HouseHoldId { get; set; }

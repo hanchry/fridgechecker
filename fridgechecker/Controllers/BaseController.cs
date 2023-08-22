@@ -8,4 +8,14 @@ public class BaseController:Controller
     {
         return HttpContext.Session.GetString("token");
     }
+    protected string GetUserId()
+    {
+        return HttpContext.Session.GetString("userId");
+    }
+
+    public string HouseId
+    {
+        get => HttpContext.Session.GetString("houseId");
+        set => HttpContext.Session.SetString("houseId", value);
+    }
 }
