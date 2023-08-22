@@ -1,4 +1,5 @@
-﻿using fridgechecker.Services;
+﻿using fridgechecker.Models;
+using fridgechecker.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace fridgechecker.Controllers;
@@ -13,7 +14,11 @@ public class FoodController:BaseController
     }
     public async Task<IActionResult> Index(int id)
     {
-        var foods = await _foodService.GetStorageFood(id);
+        if (id != 0)
+        {
+            StorageId = id.ToString();
+        }
+        var foods = await _foodService.GetStorageFood(int.Parse(StorageId));
         return View(foods);
     }
     public IActionResult Back()
@@ -23,5 +28,16 @@ public class FoodController:BaseController
     public IActionResult Add()
     {
         return View();
+    }
+    public async Task<IActionResult> AddFood(Food food)
+    {
+        food.StorageId = int.Parse(StorageId);
+        await _foodService.CreateFood(food);
+        return RedirectToAction("Index");
+    }
+    public async Task<IActionResult> Delete(int foodId)
+    {
+        await _foodService.DeleteFood(foodId);
+        return RedirectToAction("Index");
     }
 }

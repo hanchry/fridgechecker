@@ -18,4 +18,9 @@ public class BaseController:Controller
         get => HttpContext.Session.GetString("houseId");
         set => HttpContext.Session.SetString("houseId", value);
     }
+    public string StorageId
+    {
+        get => HttpContext.Session.GetString("storageId");
+        set => HttpContext.Session.SetString("storageId", value);
+    }
 }

@@ -11,4 +11,9 @@ public class Food
     public int? Amount { get; set; }
     public string? AmountType { get; set; }
     public string? Type { get; set; }
+    
+    public string ToString()
+    {
+        return $"Id: {Id}, StorageId: {StorageId}, Name: {Name}, Description: {Description}, Image: {Image}, ExpirationDate: {ExpirationDate}, Amount: {Amount}, AmountType: {AmountType}, Type: {Type}";
+    }
 }

@@ -1,8 +1,10 @@
-﻿@{
+﻿@model Food
+
+@{
     ViewData["Title"] = "HouseHolds";
 }
 
-<style>
+<style xmlns="http://www.w3.org/1999/html">
     #svgNav1 {
         stroke: #ffcc00;
     }
@@ -32,27 +34,39 @@
     </div>
     <div class="form-input-div">
         <p>Name:</p>
-        <input/>
+        <input asp-for="Name"/>
     </div >
     <div class="form-input-div">
         <p>Description:</p>
-        <input/>
+        <input asp-for="Description"/>
     </div>
     <div class="form-input-div">
         <p>Expiration date:</p>
-        <input/>
+        <input type="date" asp-for="ExpirationDate"/>
     </div >
     <div class="form-input-div">
         <p>Amount:</p>
-        <input/>
+        <input asp-for="Amount"/>
     </div>
     <div class="form-input-div">
         <p>Amount type:</p>
-        <input/>
+        <select asp-for="AmountType">
+            <option>l</option>
+            <option>ml</option>
+            <option>kg</option>
+            <option>g</option>
+            <option>pcs</option>
+        </select>
     </div >
     <div class="form-input-div">
         <p>Food type:</p>
-        <input/>
+        <select asp-for="Type">
+            <option>Meat</option>
+            <option>Vegetables</option>
+            <option>Fruits</option>
+            <option>Drinks</option>
+            <option>Other</option>
+        </select>
     </div>
-    <button>Add</button>
+    <button asp-action="AddFood">Add</button>
 </form>

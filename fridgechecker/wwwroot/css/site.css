@@ -133,6 +133,7 @@ nav > ul {
     width: 100%;
     height: calc(100% - 13%);
     list-style: none;
+    overflow-y: hidden;
 }
 .content-list > li{
     margin-bottom: 30px;
@@ -140,6 +141,7 @@ nav > ul {
 .list-form{
     position: relative;
     width: 100%;
+    margin-bottom: 15px;
 }
 .list-item{
     width: 100%;
@@ -251,11 +253,20 @@ nav > ul {
     font-weight: bold;
 }
 .form-input-div > input{
-    /*width: 70%;*/
+    width: 50%;
     /*padding: 10px;*/
     border-radius: 10px;
     border: none;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+.form-input-div > select{
+    width: 50%;
+    /*padding: 10px;*/
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 .adding-form > button{
     position: absolute;
