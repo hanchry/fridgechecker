@@ -31,7 +31,7 @@ jobs:
         run: sudo apt-get update -y && sudo apt-get install ftp -y
 
       - name: Dotnet Publish
-        run: cd ./${{ env.repo-local-folder }} && dotnet publish -c Release --output ./Release --self-contained true --runtime win-x86 --framework net7.
+        run: cd ./${{ env.repo-local-folder }} && dotnet publish -c Release --output ./Release --self-contained true --runtime win-x86 --framework net7.0
       
       - name: Create app_offline.htm file in the publish folder
         run: touch app_offline.htm
