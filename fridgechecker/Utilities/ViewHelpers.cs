@@ -1,4 +1,6 @@
-﻿namespace fridgechecker.Utilities;
+﻿using System.Text;
+
+namespace fridgechecker.Utilities;
 
 public static class ViewHelpers
 {
@@ -7,8 +9,8 @@ public static class ViewHelpers
         var daysTillExpiration = -360;
         if (expirationDate != null)
         {
-            var today = DateTime.Today;
-            var expiration = expirationDate.Value;
+            var today = DateTime.Today.Date;
+            var expiration = expirationDate.Value.Date;
             var difference = expiration - today;
             daysTillExpiration = difference.Days;
         }
@@ -32,5 +34,17 @@ public static class ViewHelpers
             color = "#228c57";
         }
         return color;
+    }
+    
+    public static string EmojiToUnicode(string emoji)
+    {
+        var result = string.Join("-", emoji.Select(c => ((int)c).ToString("X4")));
+        return result;
+    }
+    public static string UnicodeToEmoji(string unicode)
+    {
+        string[] unicodeParts = unicode.Split('-');
+        var result = new string(unicodeParts.Select(part => (char)int.Parse(part, System.Globalization.NumberStyles.HexNumber)).ToArray());
+        return result;
     }
 }

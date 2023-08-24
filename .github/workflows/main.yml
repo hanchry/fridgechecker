@@ -1,0 +1,107 @@
+name: Automatic Deployment
+run-name: Automatic Deployment 🚀
+jobs:
+
+  ################################    TyeWebApp    ################################
+  auto-cron-deployment-tye-web-app:
+    runs-on: ubuntu-latest
+    env:
+      repo-local-folder: fridgechecker
+      server-folder: fridgechecker
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Check for changes in subfolder
+        run: 'git log --since="24 hours ago" --pretty=format: --name-only | grep "${{ env.repo-local-folder }}/" &> /dev/null && echo "true" || exit 1'
+
+      - name: Setup dependency - .NET 7
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Setup dependency - FTP cli
+        run: sudo apt-get update -y && sudo apt-get install ftp -y
+
+      - name: Dotnet Publish
+        run: cd ./${{ env.repo-local-folder }} && dotnet publish -c Release --output ./Release --self-contained true --runtime win-x86 --framework net7.
+      
+      - name: Create app_offline.htm file in the publish folder
+        run: touch app_offline.htm
+        working-directory: ${{ env.repo-local-folder }}/Release
+
+      - name: Check files
+        run: ls -la
+        working-directory: ${{ env.repo-local-folder }}/Release
+
+      - name: Stop remote app
+        run: |
+          touch app_offline.htm
+          echo -e "user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }} \n cd ${{ env.server-folder }} \n put app_offline.htm \n quit" | ftp -p ${{ secrets.FTP_SERVER }} -n
+
+      - name: FTP to server and upload all files to remote to temp folder
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /${{ env.server-folder }}/
+          local-dir: ./${{ env.repo-local-folder }}/Release/
+
+      - name: Start remote app
+        run: echo -e "user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }} \n cd ${{ env.server-folder }} \n delete app_offline.htm \n quit" | ftp -p ${{ secrets.FTP_SERVER }} -n
+
+        ################################    WebAPI    ################################
+  auto-cron-deployment-web-api:
+    needs: auto-cron-deployment-tye-web-app
+    if: always()
+    runs-on: ubuntu-latest
+    env:
+      repo-local-folder: fridgechecker.API
+      server-folder: api
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Check for changes in subfolder
+        run: 'git log --since="24 hours ago" --pretty=format: --name-only | grep "${{ env.repo-local-folder }}/" &> /dev/null && echo "true" || exit 1'
+
+      - name: Setup dependency - .NET 7
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Setup dependency - FTP cli
+        run: sudo apt-get update -y && sudo apt-get install ftp -y
+
+      - name: Dotnet Publish
+        run: cd ./${{ env.repo-local-folder }} && dotnet publish -c Release --output ./Release --self-contained true --runtime win-x86 --framework net7.0
+
+      - name: Create app_offline.htm file in the publish folder
+        run: touch app_offline.htm
+        working-directory: ${{ env.repo-local-folder }}/Release
+
+      - name: Check files
+        run: ls -la
+        working-directory: ${{ env.repo-local-folder }}/Release
+
+      - name: Stop remote app
+        run: |
+          touch app_offline.htm
+          echo -e "user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }} \n cd ${{ env.server-folder }} \n put app_offline.htm \n quit" | ftp -p ${{ secrets.FTP_SERVER }} -n
+
+      - name: FTP to server and upload all files to remote to temp folder
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /${{ env.server-folder }}/
+          local-dir: ./${{ env.repo-local-folder }}/Release/
+
+      - name: Start remote app
+        run: echo -e "user ${{ secrets.FTP_USERNAME }} ${{ secrets.FTP_PASSWORD }} \n cd ${{ env.server-folder }} \n delete app_offline.htm \n quit" | ftp -p ${{ secrets.FTP_SERVER }} -n

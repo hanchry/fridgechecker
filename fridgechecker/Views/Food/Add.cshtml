@@ -1,4 +1,5 @@
-﻿@model Food
+﻿@using fridgechecker.Utilities
+@model Food
 
 @{
     ViewData["Title"] = "HouseHolds";
@@ -27,11 +28,17 @@
 
     </a>
 </div>
-
+    
 <form class="adding-form">
-    <div class="form-image">
-        🥩
-    </div>
+    @if (Model.Image != null && Model.Image != "")
+    {
+        <button asp-action="ChooseIcon" class="form-image"> @Model.Image </button>
+        <input type="hidden" asp-for="Image" value="@ViewHelpers.EmojiToUnicode(Model.Image)"/>
+    }
+    else
+    {
+        <button asp-action="ChooseIcon" class="form-image"> +</button>
+    }
     <div class="form-input-div">
         <p>Name:</p>
         <input asp-for="Name"/>
@@ -68,5 +75,5 @@
             <option>Other</option>
         </select>
     </div>
-    <button asp-action="AddFood">Add</button>
+    <button class="add-button" asp-action="AddFood">Add</button>
 </form>

@@ -25,12 +25,19 @@ public class FoodController:BaseController
     {
         return RedirectToAction("Index", "Storage");
     }
-    public IActionResult Add()
+    public IActionResult ChooseIcon()
     {
-        return View();
+        return RedirectToAction("Index", "Icons");
+    }
+    public IActionResult Add(String icon)
+    {
+        var food = new Food();
+        food.Image = icon;
+        return View(food);
     }
     public async Task<IActionResult> AddFood(Food food)
     {
+        Console.WriteLine(food.Image);
         food.StorageId = int.Parse(StorageId);
         await _foodService.CreateFood(food);
         return RedirectToAction("Index");

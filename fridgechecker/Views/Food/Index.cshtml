@@ -40,13 +40,30 @@
             <form class="list-form">
                 <input type="hidden" name="foodId" value="@food.Id"/>
                 <button asp-action="Index" style="background: @ViewHelpers.GetColorForExpiration(food.ExpirationDate) !important;" class="list-item" type="submit">
-                    <div class="list-image">🥩</div>
+                    @if (food.Image == null || food.Image == "")
+                    {
+                        <div class="list-image">🥩</div>
+                    }else
+                    {
+                        <div class="list-image">@ViewHelpers.UnicodeToEmoji(food.Image)</div>
+                    }
                     <div class="list-name">
                         <h1>@food.Name</h1>
-                        <p>@ViewHelpers.GetDaysTillExpiration(food.ExpirationDate) days</p>
+                        @if (@ViewHelpers.GetDaysTillExpiration(food.ExpirationDate) == -360)
+                        {
+                            <p>expired or no date set</p>
+                        }
+                        else
+                        {
+                            <p>@ViewHelpers.GetDaysTillExpiration(food.ExpirationDate) days</p>
+                        }
                     </div>
                     <div></div>
                 </button>
+                @if (food.Amount > 0)
+                {
+                    <p class="food-amount">@food.Amount @food.AmountType</p>
+                }
                 <button asp-action="Delete" class="list-delete-button">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>

@@ -1,0 +1,88 @@
+﻿@{
+    var foodIcons = new Dictionary<string, string>
+    {
+        {"🍏", "Green Apple"}, {"🍎", "Red Apple"}, {"🍐", "Pear"}, {"🍊", "Tangerine"}, {"🍋", "Lemon"},
+        {"🍌", "Banana"}, {"🍉", "Watermelon"}, {"🍇", "Grapes"}, {"🍓", "Strawberry"}, {"🍈", "Melon"},
+        {"🍍", "Pineapple"}, {"🥭", "Mango"}, {"🥥", "Coconut"}, {"🍑", "Peach"}, {"🍒", "Cherry"},
+        {"🍅", "Tomato"}, {"🍆", "Eggplant"}, {"🥑", "Avocado"}, {"🥦", "Broccoli"}, {"🥒", "Cucumber"},
+        {"🥬", "Leafy Green"}, {"🌶", "Hot Pepper"}, {"🌽", "Corn"}, {"🥕", "Carrot"}, {"🥔", "Potato"},
+        {"🍠", "Sweet Potato"}, {"🥐", "Croissant"}, {"🍞", "Bread"}, {"🥖", "Baguette Bread"}, {"🧀", "Cheese Wedge"},
+        {"🥚", "Egg"}, {"🍳", "Cooking"}, {"🥓", "Bacon"}, {"🥞", "Pancakes"}, {"🍤", "Fried Shrimp"},
+        {"🍗", "Poultry Leg"}, {"🍖", "Meat on Bone"}, {"🍕", "Pizza"}, {"🌭", "Hot Dog"}, {"🍔", "Burger"},
+        {"🍟", "French Fries"}, {"🥙", "Stuffed Flatbread"}, {"🌮", "Taco"}, {"🌯", "Burrito"}, {"🥗", "Green Salad"},
+        {"🥘", "Shallow Pan of Food"}, {"🍝", "Spaghetti"}, {"🍜", "Noodles"}, {"🍲", "Pot of Food"},
+        {"🍣", "Sushi"}, {"🍱", "Bento Box"}, {"🍙", "Rice Ball"}, {"🍚", "Cooked Rice"},
+        {"🍘", "Rice Cracker"}, {"🍢", "Oden"}, {"🍡", "Dango"}, {"🍧", "Shaved Ice"}, {"🍨", "Ice Cream"},
+        {"🍦", "Soft Ice Cream"}, {"🍰", "Shortcake"}, {"🎂", "Birthday Cake"}, {"🍮", "Custard"},
+        {"🍭", "Lollipop"}, {"🍬", "Candy"}, {"🍫", "Chocolate Bar"}, {"🍩", "Doughnut"}, {"🍪", "Cookie"},
+        {"🍯", "Honey Pot"}, {"🍼", "Baby Bottle"}, {"🥛", "Glass of Milk"}, {"☕", "Hot Beverage"}, {"🍵", "Tea"},
+        {"🍶", "Sake"}, {"🍺", "Beer"}, {"🍻", "Clinking Beer Mugs"}, {"🥂", "Clinking Glasses"},
+        {"🍷", "Wine Glass"}, {"🥃", "Tumbler Glass"}, {"🍸", "Cocktail Glass"}, {"🍹", "Tropical Drink"},
+        {"🍾", "Bottle with Popping Cork"}
+    };
+}
+
+<style>
+
+     form{
+        position: absolute;
+        top: 45px;
+        left: 0;
+        padding: 20px;
+        width: 100%;
+        height: calc(100% - 13%);
+        overflow-y: scroll;
+     }
+    .icons-grid {  
+        align-items: center;
+        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    h3 {
+        text-align: left;
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+        margin-left: 5px;
+        color: #ffffff;
+    }
+
+    button {
+        display: inline-block;
+        background-color: #fff;
+        padding: 10px 15px;
+        margin: 5px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+    }
+
+</style>
+
+<div class="page-header">
+    <a asp-action="Back">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-left" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M5 12l14 0"/>
+            <path d="M5 12l4 4"/>
+            <path d="M5 12l4 -4"/>
+        </svg>
+    </a>
+    <h1>Icons</h1>
+    <a style="width: 44px">
+
+    </a>
+</div>
+
+<form>
+    <h3>Food</h3>
+    <div class="icons-grid">
+        @foreach (var foodIcon in foodIcons)
+        {
+            <button type="submit" name="icon" asp-action="ChooseIcon" value="@foodIcon.Key">@foodIcon.Key</button>
+        }
+    </div>
+</form>
