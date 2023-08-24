@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       repo-local-folder: fridgechecker
-      server-folder: fridgechecker
+      server-folder: public_html
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
