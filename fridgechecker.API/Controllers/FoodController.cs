@@ -30,6 +30,7 @@ public class FoodController: Controller
     [HttpPost("Food", Name = nameof(Food))]
     public async Task<IActionResult> Food(FoodDB food)
     {
+        
         var foodResult = await _foodService.CreateFoodAsync(food);
         return Ok(foodResult);
     }
