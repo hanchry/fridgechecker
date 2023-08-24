@@ -1,6 +1,10 @@
 name: Automatic Deployment
 run-name: Automatic Deployment 🚀
-
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
 jobs:
 
   ################################    TyeWebApp    ################################
