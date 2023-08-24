@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "tTg3iaZ0+2R41e1N+W1FtFoif8e09AZUbGMG/PXoMwE=",
-  "Source": "fridgechecker.API",
-  "BasePath": "_content/fridgechecker.API",
+  "Hash": "lAVsf4/XP8OL4a3UKcpKodesbBfBaGYqErDYy8hI7Xs=",
+  "Source": "WebApi",
+  "BasePath": "_content/WebApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
