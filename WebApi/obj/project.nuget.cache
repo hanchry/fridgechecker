@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "top+rgLxCe3u7qWDi7YA35yKmD6ZuM1AHvBxNXMKsOx5MSrAly8B8MxpM4M/i4DRGpCxxHGZA8o5ZRJZurE+SA==",
+  "dgSpecHash": "7SprU0SSlBoOywSqKSCZa4pHJfdtx+dKeEaJSLdPrhrMm9hns/rZX7uPy2w7tjg5IZicGlL9hpTFtkvOpLL+eA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hanch\\Desktop\\fridge\\fridgechecker\\fridgechecker.API\\fridgechecker.API.csproj",
+  "projectFilePath": "C:\\Users\\hanch\\Desktop\\fridge\\fridgechecker\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hanch\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\hanch\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

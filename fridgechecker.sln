@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fridgechecker.API", "fridgechecker.API\fridgechecker.API.csproj", "{91201135-3AAB-4263-9904-C0F71A173D12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{91201135-3AAB-4263-9904-C0F71A173D12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fridgechecker", "fridgechecker\fridgechecker.csproj", "{BBFC6EB2-CDB4-461B-A198-B5F21676E3EB}"
 EndProject

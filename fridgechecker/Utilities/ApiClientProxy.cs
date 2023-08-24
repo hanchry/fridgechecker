@@ -42,45 +42,45 @@ public class ApiClientProxy:IApiClientProxy
         }
     }
 
-    public Task<T> PostEntityAsync<T>(string url, T entity)
+    public async Task<T> PostEntityAsync<T>(string url, T entity)
     {
         var response = client.PostAsync(url, new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, "application/json")).Result;
         if (response.IsSuccessStatusCode)
         {
             var content = response.Content.ReadAsStringAsync().Result;
-            return Task.FromResult(JsonConvert.DeserializeObject<T>(content));
+            return JsonConvert.DeserializeObject<T>(content);
         }
         else
         {
-            return Task.FromResult(default(T));
+            return default(T);
         }
     }
 
-    public Task<T> PutEntityAsync<T>(string url, T entity, string token)
+    public async Task<T> PutEntityAsync<T>(string url, T entity, string token)
     {
         var response = client.PutAsync(url, new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, "application/json")).Result;
         if (response.IsSuccessStatusCode)
         {
             var content = response.Content.ReadAsStringAsync().Result;
-            return Task.FromResult(JsonConvert.DeserializeObject<T>(content));
+            return JsonConvert.DeserializeObject<T>(content);
         }
         else
         {
-            return Task.FromResult(default(T));
+            return default(T);
         }
     }
 
-    public Task<T?> DeleteEntityAsync<T>(string url, string token)
+    public async Task<T> DeleteEntityAsync<T>(string url, string token)
     {
         var response = client.DeleteAsync(url).Result;
         if (response.IsSuccessStatusCode)
         {
             var content = response.Content.ReadAsStringAsync().Result;
-            return Task.FromResult(JsonConvert.DeserializeObject<T>(content));
+            return JsonConvert.DeserializeObject<T>(content);
         }
         else
         {
-            return Task.FromResult(default(T));
+            return default(T);
         }
     }
 }
