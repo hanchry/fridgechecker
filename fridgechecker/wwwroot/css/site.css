@@ -70,7 +70,8 @@ nav > ul {
     padding: 0;
     margin: 0;
     margin-inline: 10%;
-    top: 15%;
+    top: 50%;
+    transform: translate(0, -40%);
     position: relative
 }
 
@@ -82,14 +83,15 @@ nav > ul {
 #svgNav1, #svgNav2, #svgNav3 {
     stroke: #808080;
     transition: stroke 0.5s ease-in-out;
+    height: 70%;
 }
 
 #Nav1, #Nav2, #Nav3 {
     position: relative;
     top: 1px;
-    left: -20%;
-    height: 5px;
-    width: 140%;
+    /*left: -10%;*/
+    height: 0.5vh;
+    width: 100%;
     background-color: white;
     transition: background-color 0.5s ease-in-out;
 }
@@ -128,7 +130,7 @@ nav > ul {
     position: absolute;
     left: 0;
     top: 45px;
-    padding: 15px;
+    padding: 20px;
     margin: 0;
     width: 100%;
     height: calc(100% - 13%);
@@ -151,21 +153,22 @@ nav > ul {
     border-radius: 10px;
 }
 .list-image {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     background: #ffffff;
     border-radius: 10px;
     transform: rotate(-20deg);
 /*    text size*/
-    font-size: 60px;
+    font-size: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .list-name{
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 55%;
+    width: 40%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
@@ -176,35 +179,40 @@ nav > ul {
 .list-name> p{
     margin: 0;
     padding: 0;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     color: #e3e3e3;
 }
 .list-name >h1{
     margin: 0;
     padding: 0;
-    font-size: 30px;
+    font-size: 17px;
     font-weight: bold;
+    margin-bottom: 5px;
     color: #ffffff;
 }
 .food-amount{
     position: absolute;
-    bottom: 1%;
-    right: 1%;
+    bottom: -6%;
+    right: -4%;
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
     margin: 0;
-    color: #e3e3e3;
+    color: #000000;
+    background: #d9d9d9;
+    border-radius: 10px;
 }
 .list-delete-button{
     position: absolute;
     top: -10px;
     right: -10px;
-    width: 40px;
-    height: 40px;
+    width: 9vw;
+    height: 5vh;
     background: #ffcb05;
     border-radius: 100%;
     display: flex;
@@ -224,7 +232,7 @@ nav > ul {
     overflow-y: scroll;
     overflow-x: hidden;
     padding: 25px;
-    padding-inline: 15px;
+    padding-inline: 7vw;
     margin: 0px;
     /*background-color: #000000;*/
 }
